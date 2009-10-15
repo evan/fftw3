@@ -1,4 +1,3 @@
-require "narray"
 require "numru/fftw3"
 include NumRu
 

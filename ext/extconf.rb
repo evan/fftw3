@@ -41,4 +41,4 @@ if /cygwin|mingw/ =~ RUBY_PLATFORM
    have_library("narray") || raise("ERROR: narray library is not found")
 end
 
-create_makefile("numru/fftw3")
+create_makefile("numru/fftw3/fftw3")
