@@ -1,6 +1,6 @@
 require 'echoe'
 
-Echoe.new("ruby-fftw3") do |p|
+Echoe.new("ruby-fftw3", "0.2") do |p|
   p.author = "T. Horinouchi, Evan Weaver"
   p.project = "ruby-fftw3"
   p.summary = "Gem version of T. Horinouchi's ruby-fftw3."
