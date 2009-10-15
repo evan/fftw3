@@ -1,0 +1,8 @@
+ChangeLog
+README
+Rakefile
+ToDo
+ext/extconf.rb
+ext/na_fftw3.c
+test/complexFFT.rb
+Manifest
