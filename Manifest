@@ -1,8 +1,9 @@
 ChangeLog
+Manifest
 README
 Rakefile
 ToDo
 ext/extconf.rb
 ext/na_fftw3.c
+lib/numru/fftw3.rb
 test/complexFFT.rb
-Manifest
