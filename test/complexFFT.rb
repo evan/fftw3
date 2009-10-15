@@ -1,5 +1,4 @@
-require "numru/fftw3"
-include NumRu
+require "fftw3"
 
 print "\n**TEST** all dimensions\n\n"
 

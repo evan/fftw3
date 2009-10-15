@@ -12,8 +12,7 @@
 #include "narray.h"
 #include <fftw3.h>
 
-VALUE rb_mFFTW3;
-VALUE mNumRu;
+VALUE mFFTW3;
 
 static VALUE
 #ifdef FFTW3_HAS_SINGLE_SUPPORT
@@ -278,7 +277,6 @@ na_fftw3(int argc, VALUE *argv, VALUE self)
 void
  Init_fftw3()
 {
-  mNumRu = rb_define_module("NumRu");
-  rb_mFFTW3 = rb_define_module_under(mNumRu, "FFTW3");
-  rb_define_module_function(rb_mFFTW3, "fft", na_fftw3, -1);
+  mFFTW3 = rb_define_module("FFTW3");
+  rb_define_module_function(mFFTW3, "fft", na_fftw3, -1);
 }
