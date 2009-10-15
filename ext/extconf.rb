@@ -1,6 +1,8 @@
 require "mkmf"
+require "rubygems"
 
-dir_config('narray',$sitearchdir,$sitearchdir)
+narray_dir = File.dirname(Gem.find_files("narray.h").first) rescue $sitearchdir
+dir_config('narray', narray_dir, narray_dir)
 dir_config('fftw3','/usr/local')
 
 if ( ! ( have_header("narray.h") && have_header("narray_config.h") ) ) then
