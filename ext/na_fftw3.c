@@ -278,5 +278,5 @@ void
  Init_fftw3()
 {
   mFFTW3 = rb_define_module("FFTW3");
-  rb_define_module_function(mFFTW3, "fft", na_fftw3, -1);
+  rb_define_module_function(mFFTW3, "fft_raw", na_fftw3, -1);
 }
