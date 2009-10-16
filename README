@@ -25,6 +25,7 @@ NO WARRANTY
 
 ==Installation
 
+    Install fftw3 (in OSX with MacPorts: sudo port install fftw3)
     sudo gem install fftw3
 
 ==How to use
