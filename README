@@ -25,60 +25,35 @@ NO WARRANTY
 
 ==Installation
 
-* Install ((<FFTW|URL:http://www.fftw.org>)) Ver.3.
-
-  * NOTE: 
-    To activate the single-float transform, you have to install FFTW3 with
-    the single-float compilation, in addition to the default double-float
-    version. This can be done by configuring FFTW3 with
-    the --enable-float option, and install it again. The single-float
-    version will coexist with the double-float version.
-    If you do not install the single-float version, FFT is always done
-    with the double precision, which is not bad if you are not time- and 
-    memory-conscious.
-
-* Install ((<NArray|URL:http://www.ruby-lang.org/en/raa-list.rhtml?name=NArray>)).
-
-* Then, install this library as follows (replace "version" with
-  the actual version number):
-
-    % tar xvzf fftw3-version.tar.gz
-    % cd fftw3-version
-    % ruby extconf.rb
-    % make
-    % make site-install
-  Or
-    % make install
-  (If you are using Ruby 1.8, make install is the same make site-install.)
+    sudo gem install fftw3
 
 ==How to use
 
 See the following peice of code. (Install this library and copy and
 paste the following to the interactive shell irb).
 
-  require "narray"
-  require "numru/fftw3"
+  require "fftw3"
   include NumRu
 
   na = NArray.float(8,6)   # float -> will be corced to complex
   na[1,1]=1
 
   # <example 1>
-  fc = FFTW3.fft(na, -1)/na.length  # forward 2D FFT and normalization
-  nc = FFTW3.fft(fc, 1)       # backward 2D FFT (complex) --> 
+  fc = FFTW3.fft(na,)/na.length  # forward 2D FFT and normalization
+  nc = FFTW3.ifft(fc)       # backward 2D FFT (complex) --> 
   nb = nc.real                # should be equal to na except round errors  
 
   # <example 2>
-  fc = FFTW3.fft(na, -1, 0) / na.shape[0]  # forward FFT with the first dim
+  fc = FFTW3.fft(na, 0) / na.shape[0]  # forward FFT with the first dim
 
   # <example 3>
-  fc = FFTW3.fft(na, -1, 1) / na.shape[1]  # forward FFT with the second dim
+  fc = FFTW3.fft(na, 1) / na.shape[1]  # forward FFT with the second dim
 
 ==API Reference
 
 ===Module methods
 
----fft(narray, dir [,dim,dim,...])
+---fft(narray, [dim,dim,...])
 
     Complex FFT.
 
@@ -112,5 +87,7 @@ paste the following to the interactive shell irb).
       the result of FFTW.fft(narray, -1) (FFT for all dimensions)
       can be normalized by narray.length.
 
-
+---ifft(narray, [dim,dim,...])
+     
+     Complex inverse FFT
 
