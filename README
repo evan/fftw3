@@ -33,13 +33,12 @@ See the following peice of code. (Install this library and copy and
 paste the following to the interactive shell irb).
 
   require "fftw3"
-  include NumRu
 
   na = NArray.float(8,6)   # float -> will be corced to complex
   na[1,1]=1
 
   # <example 1>
-  fc = FFTW3.fft(na,)/na.length  # forward 2D FFT and normalization
+  fc = FFTW3.fft(na)/na.length  # forward 2D FFT and normalization
   nc = FFTW3.ifft(fc)       # backward 2D FFT (complex) --> 
   nb = nc.real                # should be equal to na except round errors  
 
@@ -66,7 +65,6 @@ paste the following to the interactive shell irb).
       version of FFTW3 is installed (before installing this module),
       this method does a single-precision transform. 
       Otherwise, a double-precision transform is used.
-    * dir (-1 or 1) : forward transform if -1; backward transform if 1.
     * optional 3rd, 4th,... arguments (Integer) : Specifies dimensions 
       to apply FFT. For example, if 0, the first dimension is
       transformed (1D FFT); If -1, the last dimension is used (1D FFT);
