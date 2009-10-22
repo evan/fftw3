@@ -1,6 +1,6 @@
 require 'echoe'
 
-Echoe.new("fftw3", "0.2") do |p|
+Echoe.new("fftw3", "0.3") do |p|
   p.author = "T. Horinouchi, Evan Weaver"
   p.project = "fauna"
   p.dependencies = ["narray"]
